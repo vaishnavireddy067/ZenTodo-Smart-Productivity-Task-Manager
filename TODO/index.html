@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZenTodo - Focus on What Matters</title>
+    <meta name="description" content="A premium, minimalist todo application designed for productivity and clarity.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Confetti Library -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+
+<body>
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <main class="app-container">
+        <header class="app-header">
+            <div class="logo-section">
+                <div class="logo-icon">
+                    <i data-lucide="check-circle-2"></i>
+                </div>
+                <h1>ZenTodo</h1>
+            </div>
+            <p class="subtitle">Organize your day, simplify your life.</p>
+
+            <div class="progress-section">
+                <div class="progress-info">
+                    <span>Task Progress</span>
+                    <span id="progress-percent">0%</span>
+                </div>
+                <div class="progress-bar-container">
+                    <div id="progress-fill" class="progress-fill"></div>
+                </div>
+            </div>
+        </header>
+
+        <section class="input-section">
+            <form id="todo-form">
+                <div class="input-container">
+                    <div class="input-row main-row">
+                        <input type="text" id="todo-input" placeholder="What needs to be done?" required
+                            autocomplete="off">
+                        <button type="submit" class="add-btn" aria-label="Add Task">
+                            <i data-lucide="plus"></i>
+                        </button>
+                    </div>
+                    <div class="input-row meta-row">
+                        <div class="meta-item">
+                            <i data-lucide="calendar"></i>
+                            <input type="date" id="todo-date" title="Due Date">
+                        </div>
+                        <div class="meta-item">
+                            <i data-lucide="tag"></i>
+                            <select id="todo-category" class="meta-select">
+                                <option value="general">General</option>
+                                <option value="work">Work</option>
+                                <option value="personal">Personal</option>
+                                <option value="shopping">Shopping</option>
+                                <option value="health">Health</option>
+                            </select>
+                        </div>
+                        <div class="meta-item">
+                            <i data-lucide="flag"></i>
+                            <select id="todo-priority" class="meta-select">
+                                <option value="low">Low Priority</option>
+                                <option value="medium">Medium Priority</option>
+                                <option value="high">High Priority</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </section>
+
+        <section class="search-section">
+            <div class="search-wrapper">
+                <i data-lucide="search"></i>
+                <input type="text" id="search-input" placeholder="Search tasks..." autocomplete="off">
+            </div>
+        </section>
+
+        <section class="filters-section">
+            <div class="filter-tabs">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="active">Active</button>
+                <button class="filter-btn" data-filter="completed">Completed</button>
+            </div>
+            <div class="stats">
+                <span id="items-left">0 items left</span>
+            </div>
+        </section>
+
+        <section class="list-section">
+            <ul id="todo-list" class="todo-list">
+                <!-- Tasks will be injected here -->
+            </ul>
+        </section>
+
+        <footer class="app-footer">
+            <button id="clear-completed" class="clear-btn">Clear Completed</button>
+            <div class="theme-toggle">
+                <button id="theme-btn" aria-label="Toggle Theme">
+                    <i data-lucide="sun" id="sun-icon"></i>
+                    <i data-lucide="moon" id="moon-icon" class="hidden"></i>
+                </button>
+            </div>
+        </footer>
+    </main>
+
+    <script src="script.js"></script>
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>
