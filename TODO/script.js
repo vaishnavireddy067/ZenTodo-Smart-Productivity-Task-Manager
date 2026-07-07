@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const sunIcon = document.getElementById('sun-icon');
     const moonIcon = document.getElementById('moon-icon');
 
+    
     // New Selectors
     const todoPriority = document.getElementById('todo-priority');
     const todoDate = document.getElementById('todo-date');
@@ -29,6 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
         setupTheme();
     };
 
+    
     // Theme Logic
     const setupTheme = () => {
         const savedTheme = localStorage.getItem('zen-theme') || 'light';
